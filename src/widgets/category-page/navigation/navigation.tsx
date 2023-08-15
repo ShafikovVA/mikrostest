@@ -25,7 +25,6 @@ export const Navigation = (): JSX.Element => {
       <Box display="flex" alignItems="center">
         <Show below="md">
           <MobileNavigation openedItems={[opened ?? 0]} data={categories} />
-          <Heading fontSize={{ sm: '14', md: '26' }} lineHeight={{ sm: '16px', md: '34px' }} fontWeight={600} color="white">Навигация</Heading>
         </Show>
       </Box>
       <Show above="md">

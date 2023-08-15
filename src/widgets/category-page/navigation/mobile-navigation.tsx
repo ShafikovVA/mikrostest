@@ -1,5 +1,5 @@
 import {
-  useDisclosure, Box, Slide, IconButton, Heading,
+  useDisclosure, Box, Slide, IconButton, Heading, Button,
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
@@ -21,7 +21,11 @@ export const MobileNavigation = (props: MobileNavigationProps):JSX.Element => {
 
   return (
     <>
-      <IconButton aria-label="open navigation" onClick={onOpen} icon={<NavigationIcon />} backgroundColor="inherit" _hover={{ backgroundColor: 'inherit' }} />
+      <Button value="unstyled" onClick={onOpen} backgroundColor="inherit" _hover={{ bg: 'inherit' }}>
+        <NavigationIcon />
+        <Heading fontSize={{ sm: '14', md: '26' }} lineHeight={{ sm: '16px', md: '34px' }} fontWeight={600} color="white">Навигация</Heading>
+      </Button>
+      {/* <IconButton aria-label="open navigation" onClick={onOpen} icon={<NavigationIcon />} backgroundColor="inherit" _hover={{ backgroundColor: 'inherit' }} /> */}
       <Slide
         direction="left"
         in={isOpen}

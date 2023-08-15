@@ -4,6 +4,8 @@ import {
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
 import CloseIcon from '@/shared/components/icons/close-icon';
 import MenuIcon from '@/shared/components/icons/menu';
 import MicrosLogoMobile from '@/shared/components/icons/micros-mobile-icon';
@@ -19,6 +21,12 @@ interface MobileNavigationProps {
 export const MobileNavigation = (props: MobileNavigationProps):JSX.Element => {
   const { isLight } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+  const path = router.asPath;
+
+  React.useEffect(() => {
+    onClose();
+  }, [path]);
 
   return (
     <>

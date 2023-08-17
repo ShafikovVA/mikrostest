@@ -13,12 +13,12 @@ export const Contacts = (): JSX.Element => {
       <Stack direction="column" spacing="5px">
         <Box display="flex" alignItems="center">
           <PhoneIcon fontSize="20px" />
-          <Text fontSize="12px" lineHeight="16px" marginLeft="4px" color="№000000" opacity="60%">8-995-475-02-10</Text>
+          <Text fontSize="12px" lineHeight="16px" marginLeft="4px" color="№000000" opacity="60%">+7 (995) 475-02-10</Text>
         </Box>
 
         <Box display="flex" alignItems="center">
           <PhoneIcon fontSize="20px" />
-          <Text fontSize="12px" lineHeight="16px" marginLeft="4px" color="№000000" opacity="60%">8-996-236-82-30</Text>
+          <Text fontSize="12px" lineHeight="16px" marginLeft="4px" color="№000000" opacity="60%">+7 (996) 236-82-30</Text>
         </Box>
 
         <Box display="flex" alignItems="center">

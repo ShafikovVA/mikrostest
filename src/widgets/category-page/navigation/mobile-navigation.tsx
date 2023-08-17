@@ -1,10 +1,10 @@
-import * as React from 'react';
 import {
   useDisclosure, Box, Slide, IconButton, Heading, Button,
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React from 'react';
 import CloseIcon from '@/shared/components/icons/close-icon';
 import NavigationIcon from '@/shared/components/icons/navigation-icon';
 import MicrosLogoMobile from '@/shared/components/icons/micros-little-logo';
@@ -21,11 +21,11 @@ export const MobileNavigation = (props: MobileNavigationProps):JSX.Element => {
   const { openedItems, data } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
-  const link = router.asPath;
+  const path = router.asPath;
 
   React.useEffect(() => {
     onClose();
-  }, [link]);
+  }, [path]);
 
   return (
     <>
@@ -33,7 +33,6 @@ export const MobileNavigation = (props: MobileNavigationProps):JSX.Element => {
         <NavigationIcon />
         <Heading fontSize={{ sm: '14', md: '26' }} lineHeight={{ sm: '16px', md: '34px' }} fontWeight={600} color="white">Навигация</Heading>
       </Button>
-      {/* <IconButton aria-label="open navigation" onClick={onOpen} icon={<NavigationIcon />} backgroundColor="inherit" _hover={{ backgroundColor: 'inherit' }} /> */}
       <Slide
         direction="left"
         in={isOpen}

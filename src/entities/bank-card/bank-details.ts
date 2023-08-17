@@ -15,7 +15,7 @@ export const details: Record<DetailType, BankDetail> = {
     value: '745301001',
   },
   orgn: {
-    key: 'ОРГН',
+    key: 'ОГРН',
     value: '1237400007448',
   },
   ur: {
@@ -24,7 +24,7 @@ export const details: Record<DetailType, BankDetail> = {
   },
   bank: {
     key: 'Банк',
-    value: 'Банк: ПАО Сбербанк (ЧЕЛЯБИНСКОЕ ОТДЕЛЕНИЕ N8597 ПАО СБЕРБАНК',
+    value: 'ПАО Сбербанк (ЧЕЛЯБИНСКОЕ ОТДЕЛЕНИЕ N8597 ПАО СБЕРБАНК)',
   },
   bik: {
     key: 'БИК',

@@ -9,24 +9,25 @@ import uvz from '@/public/static/uvz.png';
 import cert1 from '@/public/static/cert-1.png';
 import cert2 from '@/public/static/cert-2.png';
 import cert3 from '@/public/static/cert-3.png';
+import { PartnersGrid } from './parners-grid';
 
 export const Partners = (): JSX.Element => {
   return (
     <Box display="flex" width="100%" paddingTop={{ sm: '44px', md: '28px' }} justifyContent="center" paddingBottom="70px" paddingX="24px">
       <Box display="flex" flexDirection="column" width="100%" alignItems="center">
         <Box maxWidth="1360px" width="100%">
-          <Heading variant={{ sm: 'small', md: 'medium' }} textTransform="uppercase" borderBottom="2px solid" borderColor="#6981CA" color="#6981CA" width="max-content">наши партнеры</Heading>
+          <Heading variant={{ sm: 'small', md: 'medium' }} borderBottom="2px solid" borderColor="#6981CA" color="#6981CA" width="max-content">Наши Партнеры</Heading>
         </Box>
         <Box
           display="flex"
           position="relative"
-          width="100%"
-          left={{ sm: '0px', md: '57px' }}
+          width={{ sm: '100%', lg: 'calc(100% - 36px)' }}
+          left={{ sm: '0px', lg: '48px' }}
           maxWidth="1360px"
           flexDirection="column"
         >
-          <Stack spacing={{ sm: '30px', md: '70px' }} alignItems="center" direction={{ sm: 'column', md: 'row' }} marginTop="70px">
-            <Stack alignItems="center" spacing={{ sm: '30px', md: '70px' }} direction="row">
+          {/* <Stack spacing={{ sm: '30px', md: '30px' }} alignItems="center" direction={{ sm: 'column', md: 'row' }} marginTop="70px">
+            <Stack alignItems="center" spacing={{ sm: '30px', md: '30px' }} direction="row">
               <Box width="100%" height="100%" maxWidth="300px" maxHeight="102px">
                 <Image src={chzck} alt="ЧЗСК" />
               </Box>
@@ -36,7 +37,7 @@ export const Partners = (): JSX.Element => {
               </Box>
             </Stack>
 
-            <Stack alignItems="center" spacing={{ sm: '30px', md: '70px' }} direction="row">
+            <Stack alignItems="center" spacing={{ sm: '30px', md: '30px' }} direction="row">
               <Box width="100%" height="100%" maxWidth="300px" maxHeight="116px">
                 <Image src={aptek} alt="АПТЭК" />
               </Box>
@@ -46,7 +47,8 @@ export const Partners = (): JSX.Element => {
               </Box>
             </Stack>
 
-          </Stack>
+          </Stack> */}
+          <PartnersGrid />
           <Divider borderWidth="2px" borderColor="brand.light" marginTop={{ sm: '25px', md: '80px' }} marginBottom={{ sm: '64px', md: '44px' }} maxWidth="1280px" />
         </Box>
 

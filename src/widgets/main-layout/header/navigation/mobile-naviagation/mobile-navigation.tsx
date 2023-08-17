@@ -4,8 +4,8 @@ import {
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
 import CloseIcon from '@/shared/components/icons/close-icon';
 import MenuIcon from '@/shared/components/icons/menu';
 import MicrosLogoMobile from '@/shared/components/icons/micros-mobile-icon';
@@ -32,7 +32,7 @@ export const MobileNavigation = (props: MobileNavigationProps):JSX.Element => {
     <>
       <IconButton aria-label="open navigation" onClick={onOpen} icon={<MenuIcon light={isLight} />} backgroundColor="inherit" _hover={{ backgroundColor: 'inherit' }} />
       <Slide
-        direction="left"
+        direction="right"
         in={isOpen}
         style={{
           zIndex: 10,

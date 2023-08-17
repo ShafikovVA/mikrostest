@@ -72,7 +72,6 @@ export const RequestCard = (): JSX.Element => {
           borderBottom="2px solid"
           borderColor="#6981CA"
           borderRadius="none"
-          paddingLeft="12px"
           fontSize={{ sm: '14px', md: '18px' }}
           lineHeight={{ sm: '18px', md: '22px' }}
           cursor="pointer"

@@ -2,10 +2,11 @@ import * as React from 'react';
 import Image from 'next/image';
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react';
 import { Box } from '@chakra-ui/react';
-import { DotButton, useDotButton } from './carousel-button';
+import { DotButton, useDotButton } from './carousel-button-dot';
 import { slidesInfo } from './image-by-index';
 import { SlideInfo } from './slides';
 import './emble.css';
+import { NextButton, PrevButton, usePrevNextButtons } from './carousel-button-arrow';
 
 type PropType = {
   slides: number[];
@@ -19,6 +20,11 @@ export const Carousel = (props: PropType) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
+
+  const {
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi);
 
   return (
     <div className="embla">
@@ -43,7 +49,12 @@ export const Carousel = (props: PropType) => {
         </div>
       </div>
 
-      <Box position="absolute" overflow="hidden" bottom={0} backgroundImage="url('/static/white-wave.png')" width="100%" height={{ md: '100px', lg: '120px' }} backgroundRepeat="round" backgroundSize="cover" />
+      <Box position="absolute" top="50%" width="100%" display="flex" justifyContent="center" paddingX="24px" height="max-content">
+        <Box display="flex" justifyContent="space-between" maxWidth="1700px" width="100%">
+          <PrevButton onClick={onPrevButtonClick} />
+          <NextButton onClick={onNextButtonClick} />
+        </Box>
+      </Box>
 
       <div className="embla__dots_desktop">
         {scrollSnaps.map((_, index) => (

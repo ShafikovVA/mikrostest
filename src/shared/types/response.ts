@@ -8,6 +8,11 @@ export interface FullCategory extends Category {
 
 export interface FullBrand extends Brand {
   subcategories: SubCategory[];
+  category: {
+    id: number,
+    title: string,
+    slug: string
+  },
 }
 
 export interface ResponseOnBrandsFetch {

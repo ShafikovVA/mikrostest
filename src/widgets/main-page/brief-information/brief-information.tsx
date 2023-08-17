@@ -17,7 +17,7 @@ const BriefInformationDesktop = (): JSX.Element => {
     <Box
       display="flex"
       width="100%"
-      paddingTop="328px"
+      paddingTop="96px"
       backgroundImage="url('/static/mobile.png')"
       backgroundSize="cover"
       justifyContent="center"
@@ -46,12 +46,6 @@ const BriefInformationDesktop = (): JSX.Element => {
 };
 
 const BriefInformationMobile = (): JSX.Element => {
-  const [opened, setIsOpened] = React.useState<boolean[]>([false, false, false, false, false]);
-
-  const onOpen = (num: number) => {
-    const newArr = opened.map((item, index) => (num === index ? !item : item));
-    setIsOpened(newArr);
-  };
   return (
     <Box
       display="flex"
@@ -76,10 +70,10 @@ const BriefInformationMobile = (): JSX.Element => {
       </Heading>
 
       <Box display="flex" width="100%" alignItems="center" marginTop="8px" maxWidth="290px">
-        <CustomAccordion data={accordionText} onOpen={onOpen} />
+        <CustomAccordion data={accordionText} />
       </Box>
       <Box display="flex">
-        {!opened.includes(true) && <Image src={briefPhoto} alt="factory" />}
+        <Image src={briefPhoto} alt="factory" />
       </Box>
     </Box>
   );

@@ -11,18 +11,6 @@ export const Navigation = (): JSX.Element => {
       <Stack direction="column" spacing="5px">
         <Link
           as={NextLink}
-          href="/contacts"
-          fontSize="12px"
-          lineHeight="16px"
-          textDecoration="none"
-          color="#00000099"
-          opacity="60%"
-        >
-          Контакты
-        </Link>
-
-        <Link
-          as={NextLink}
           href="/about"
           fontSize="12px"
           lineHeight="16px"
@@ -44,6 +32,18 @@ export const Navigation = (): JSX.Element => {
         >
           Каталог
         </Link>
+        <Link
+          as={NextLink}
+          href="/contacts"
+          fontSize="12px"
+          lineHeight="16px"
+          textDecoration="none"
+          color="#00000099"
+          opacity="60%"
+        >
+          Контакты
+        </Link>
+
       </Stack>
     </Stack>
   );

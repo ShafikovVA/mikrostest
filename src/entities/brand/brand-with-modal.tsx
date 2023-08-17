@@ -12,6 +12,7 @@ export const BrandWithModal = (props: BrandWithModalProps): JSX.Element => {
   const {
     data,
   } = props;
+  // console.log(data);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -25,6 +26,7 @@ export const BrandWithModal = (props: BrandWithModalProps): JSX.Element => {
           brandImg={`https://api.mikros74.ru${data.image}`}
           catalog={data.document}
           certificate={data.certificate}
+          onClose={onClose}
         />
       </Modal>
     </>

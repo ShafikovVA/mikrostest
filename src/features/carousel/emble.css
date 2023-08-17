@@ -3,6 +3,7 @@
   --slide-size: 100%;
   --slide-height: 100%;
   position: relative;
+  background-image: url('/static/mobile.png');
 }
 .embla__viewport {
   overflow: hidden;
@@ -80,7 +81,7 @@
 }
 .embla__dots_desktop {
   z-index: 1;
-  bottom: 76px;
+  bottom: 36px;
   position: absolute;
   left: 0;
   right: 0;
@@ -105,4 +106,41 @@
 }
 .embla__dot_desktop--selected:after {
   background-color: #314689;
+}
+
+.embla__button {
+  -webkit-appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.embla__buttons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.6rem;
+}
+.embla__button {
+  z-index: 1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+}
+.embla__button:disabled {
+  opacity: 0.3;
+}
+.embla__button__svg {
+  width: 65%;
+  height: 65%;
 }

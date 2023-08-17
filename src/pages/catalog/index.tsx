@@ -11,26 +11,20 @@ import { CatalogPage } from '@/widgets/catalog-page';
 import { getCategories } from '@/shared/libs/api/get-categories';
 import { Categories } from '@/entities/category';
 
-export const getServerSideProps: GetServerSideProps<{ dehydratedState: DehydratedState }> = async (context) => {
-  const queryClient = new QueryClient();
+// export const getServerSideProps: GetServerSideProps<{ dehydratedState: DehydratedState }> = async (context) => {
+//   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(['get categories'], getCategories);
+//   await queryClient.prefetchQuery(['get categories'], getCategories);
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//     },
+//   };
+// };
 
 const Catalog: ExtendedNextPage = () => {
-  const query = useQuery(['get categories'], async () => {
-  // try {
-    const fetchedCategories = await fetch('https://localhost:3000/api/categories');
-    const data = await fetchedCategories.json() as Categories;
-
-    return data;
-  });
+  const query = useQuery(['get categories'], getCategories);
   return (
     <CatalogPage />
   );

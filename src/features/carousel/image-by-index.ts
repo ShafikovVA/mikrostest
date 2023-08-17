@@ -1,10 +1,10 @@
 import { StaticImageData } from 'next/image';
-import secondSlide from '@/public/static/second-slide.png';
-import thirdSlide from '@/public/static/third-slide.png';
+import secondSlide from '@/public/static/catalog-bg-slide.png';
+import thirdSlide from '@/public/static/contacts-bg-slide.png';
 import firstMobile from '@/public/static/mobile-slide-1.png';
 import secondMobile from '@/public/static/mobile-slide-2.png';
 import thirdMobile from '@/public/static/mobile-slide-3.png';
-import sl from '@/public/static/22.png';
+import sl from '@/public/static/first-slide-bg.png';
 
 interface ImageWithIndex {
   path: StaticImageData;

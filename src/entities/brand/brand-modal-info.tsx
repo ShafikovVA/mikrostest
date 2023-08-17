@@ -26,11 +26,12 @@ export interface BrandModalProps {
   brandImg: string | StaticImageData;
   certificate: string | null;
   catalog: string;
+  onClose: () => void;
 }
 
 export const BrandModal = (props: BrandModalProps): JSX.Element => {
   const {
-    description, tools, brandImg, brandTitle, certificate, catalog,
+    description, tools, brandImg, brandTitle, certificate, catalog, onClose,
   } = props;
 
   return (
@@ -152,12 +153,25 @@ export const BrandModal = (props: BrandModalProps): JSX.Element => {
           fontSize="18px"
           lineHeight="22px"
           color="brand.dark"
+          textAlign="center"
           _hover={{
             backgroundColor: 'brand.dark',
             borderColor: 'brand.dark',
             color: 'white',
           }}
-          isDisabled={!!certificate}
+          isDisabled={!certificate}
+          _disabled={{
+            opacity: 0.4,
+            backgroundColor: 'transparent',
+            borderColor: 'brand.dark',
+            color: 'brand.dark',
+            cursor: 'not-allowed',
+          }}
+          cursor="pointer"
+          as="a"
+          href={`https://api.mikros74.ru/${certificate}`}
+          download="certificate"
+          target="_blank"
         >
           Скачать сертификат
         </Button>
@@ -179,8 +193,10 @@ export const BrandModal = (props: BrandModalProps): JSX.Element => {
             backgroundColor: 'brand.dark',
             borderColor: 'brand.dark',
             color: 'white',
-
           }}
+          as="a"
+          href="#request"
+          onClick={onClose}
         >
           Оставить заявку
         </Button>
@@ -203,7 +219,19 @@ export const BrandModal = (props: BrandModalProps): JSX.Element => {
             borderColor: 'brand.dark',
             color: 'white',
           }}
-          isDisabled={!!catalog}
+          isDisabled={!catalog}
+          as="a"
+          href={`https://api.mikros74.ru/storage/${catalog}`}
+          cursor="pointer"
+          download
+          target="_blank"
+          _disabled={{
+            opacity: 0.4,
+            backgroundColor: 'transparent',
+            borderColor: 'brand.dark',
+            color: 'brand.dark',
+            cursor: 'not-allowed',
+          }}
         >
           Скачать каталог
         </Button>

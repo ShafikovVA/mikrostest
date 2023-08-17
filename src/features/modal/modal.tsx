@@ -19,7 +19,7 @@ export const Modal = (props: ModalBrandProps): JSX.Element => {
   return (
     <ChakraModal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
-      <ModalContent padding="24px" backgroundColor="transparent" width="100%" maxWidth="640px">
+      <ModalContent padding="24px" backgroundColor="transparent" width="100%" maxWidth="640px" boxShadow="none">
         <Box position="absolute" top={0} right={0} cursor="pointer">
           <CloseIcon onClick={onClose} color="white" />
         </Box>

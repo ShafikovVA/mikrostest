@@ -21,20 +21,22 @@ export const BankBlock = ():JSX.Element => {
     >
       <Box
         display="flex"
-        flexDirection="column"
         width="100%"
         maxWidth="1360px"
+        justifyContent="center"
       >
-        <Heading color="white" variant={{ sm: 'small', md: 'medium' }} borderBottom="2px solid" borderColor="brand.light" width="max-content">Реквизиты</Heading>
-
-        <Box marginTop={{ sm: '32px', md: '64px' }}>
-          <Show ssr above="md">
-            <BankCardDesktop />
-          </Show>
-          <Show ssr below="md">
-            <BankCardMobile />
-          </Show>
+        <Box display="flex" flexDirection="column">
+          <Heading color="white" variant={{ sm: 'small', md: 'medium' }} borderBottom="2px solid" borderColor="brand.light" width="max-content">Реквизиты</Heading>
+          <Box marginTop={{ sm: '32px', md: '64px' }} display="flex" justifyContent="center">
+            <Show ssr above="md">
+              <BankCardDesktop />
+            </Show>
+            <Show ssr below="md">
+              <BankCardMobile />
+            </Show>
+          </Box>
         </Box>
+
       </Box>
     </Box>
   );

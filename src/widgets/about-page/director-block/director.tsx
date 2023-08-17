@@ -23,7 +23,7 @@ const DirectorText = (props: DirectorTextProps): JSX.Element => {
         width="max-content"
         color="white"
         marginBottom={{ sm: '16px', md: '32px' }}
-      >Директор
+      >О компании
       </Heading>
       <Stack direction="column" spacing={{ sm: '0px', md: '32px' }}>
         {text.map((paragraph) => (
@@ -43,12 +43,13 @@ export const DirectorBlock = (): JSX.Element => {
       flexDirection={{ sm: 'column', md: 'row' }}
       width="100%"
       paddingX="24px"
-      paddingTop={{ sm: '170px', md: '150px' }}
+      paddingTop={{ sm: '170px', md: '96px' }}
+      scrollPaddingBottom={{ sm: '0px', md: '96px' }}
       position="relative"
       justifyContent="center"
       backgroundImage="url('/static/mobile.png')"
       backgroundSize="cover"
-      alignItems="flex-start"
+      alignItems="center"
       paddingBottom="40px"
     >
       <Box display="flex">

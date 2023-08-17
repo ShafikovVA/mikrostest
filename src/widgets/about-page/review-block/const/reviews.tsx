@@ -2,6 +2,7 @@ import { ReviewCardProps } from '@/entities/review-card';
 import uvz from '@/public/static/uvz-icon.png';
 import mechel from '@/public/static/mechel-icon.png';
 import aptec from '@/public/static/aptek-icon.png';
+import letter from '@/public/static/letter.png';
 
 export const reviews: ReviewCardProps[] = [
   {
@@ -18,5 +19,6 @@ export const reviews: ReviewCardProps[] = [
     company: 'ООО "Артэк"',
     icon: aptec,
     review: 'ООО "Микрос" является нашим партнёром в области металлообработки и поставки металлорежущего инструмента. За это время данная компания показала свою способность с полной ответственностью подходить к поставленным задачам, выполнять работы качественно и в срок. Отличительной чертой работы компании является оперативная обратная связь, сокращение сроков поставки и индивидуальный подход к каждой задачи. Рекомендуем ООО "Микрос", как надёжного и стабильного делового партнёра.',
+    letter,
   },
 ];

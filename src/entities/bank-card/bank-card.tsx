@@ -1,6 +1,7 @@
 import {
   Box, Text, Button, Heading, Stack,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 import MicrosLogo from '@/shared/components/icons/micros-logo';
 
 import { details } from './bank-details';
@@ -68,15 +69,15 @@ export const BankCardDesktop = ():JSX.Element => {
       color="brand.white"
       borderRadius="20px"
       maxWidth="1000px"
-      width="100%"
+      width={{ md: '100%', lg: '1000px' }}
     >
       <Box
         display="flex"
         alignItems="flex-start"
         justifyContent="space-between"
       >
-        <Box display="flex" flexDirection="column">
-          <Heading fontSize="14px" fontWeight="500" lineHeight="18px" marginTop="30px" color="white" marginBottom="20px">
+        <Box display="flex" flexDirection="column" marginRight="112px">
+          <Heading fontSize="14px" fontWeight="500" lineHeight="18px" color="white" marginBottom="20px">
             Общество с ограниченной ответственностью «Микрос»
           </Heading>
 
@@ -89,7 +90,7 @@ export const BankCardDesktop = ():JSX.Element => {
 
         <MicrosLogo dark={false} />
       </Box>
-      <Stack spacing="10px" direction="column">
+      <Stack spacing="10px" direction="column" marginTop="10px">
         <Text color="white" variant="small">{details.ur.value}</Text>
         <Text color="white" variant="small">{`${details.bank.key}:${details.bank.value}`}</Text>
         <Box
@@ -120,6 +121,9 @@ export const BankCardDesktop = ():JSX.Element => {
               backgroundColor: 'white',
               color: 'brand.dark',
             }}
+            as="a"
+            href="/doc/bank-details.pdf"
+            download="bank-details.pdf"
           >
             Скачать реквизиты
           </Button>

@@ -1,6 +1,9 @@
-import { Box, Heading, Stack } from '@chakra-ui/react';
+import {
+  Box, Heading, Stack, SimpleGrid,
+} from '@chakra-ui/react';
 import { ReviewCard } from '@/entities/review-card';
 import { reviews } from './const/reviews';
+import { ReviewGrid } from './review-grid';
 
 export const ReviewBlock = (): JSX.Element => {
   return (
@@ -20,11 +23,7 @@ export const ReviewBlock = (): JSX.Element => {
       >
         <Heading color="brand.light" variant={{ sm: 'small', md: 'medium' }} borderBottom="2px solid" borderColor="brand.light" width="max-content">Отзывы</Heading>
 
-        <Stack direction={{ sm: 'column', md: 'row' }} spacing={{ sm: '18px', md: '24px' }} marginTop={{ sm: '60px', md: '90px' }} alignItems={{ sm: 'center', md: 'normal' }}>
-          {reviews.map((companyReview) => (
-            <ReviewCard key={companyReview.review} review={companyReview.review} company={companyReview.company} icon={companyReview.icon} />
-          ))}
-        </Stack>
+        <ReviewGrid />
       </Box>
     </Box>
   );

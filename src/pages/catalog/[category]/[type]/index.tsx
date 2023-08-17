@@ -17,22 +17,6 @@ import { FullBrand, ResponseOnAllBrands, ResponseOnBrandsFetch } from '@/shared/
 import { Brand } from '@/entities/brand/type';
 import { getAllBrands } from '@/shared/libs/api/get-all-brands';
 
-export const getServerSideProps: GetServerSideProps<{ dehydratedState: DehydratedState }> = async (context) => {
-  const { category, type } = context.query;
-
-  const typeSlug = type as string;
-
-  const queryClient = new QueryClient();
-
-  await queryClient.fetchQuery(['get all brands'], getAllBrands);
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
-
 const TypePage: ExtendedNextPage = () => {
   const router = useRouter();
 
@@ -40,24 +24,24 @@ const TypePage: ExtendedNextPage = () => {
   const categorySlug = category as string;
   const typeSlug = type as string;
 
-  const query = useQuery(['get all brands'], async () => {
-    const fetchedAllBrands = await fetch('https://api.mikros74.ru/api/brands');
-    const fetchedAllBrandsData = await fetchedAllBrands.json() as ResponseOnAllBrands;
-
-    return fetchedAllBrandsData.brands;
-  });
-
-  const allBrands = query.data ?? [];
+  const [allBrands, setAllBrands] = React.useState<FullBrand[]>();
 
   const [visibleBrands, setVisibleBrands] = React.useState<FullBrand[]>([]);
 
   React.useEffect(() => {
-    const newVisibleBrands = allBrands.filter((brand) => brand.subcategories.find((subcategory) => subcategory.slug === typeSlug));
+    fetch('https://api.mikros74.ru/api/brands')
+      .then((data) => data.json() as Promise<ResponseOnAllBrands>)
+      .then((data) => setAllBrands(data.brands))
+      .catch((error) => console.log(error));
+  }, []);
+
+  React.useEffect(() => {
+    const newVisibleBrands = allBrands?.filter((brand) => brand.subcategories.find((subcategory) => subcategory.slug === typeSlug)) ?? [];
     setVisibleBrands(newVisibleBrands);
-  }, [typeSlug, categorySlug]);
+  }, [typeSlug, categorySlug, allBrands]);
 
   return (
-    <SimpleGrid minChildWidth={{ sm: '120px', md: '300px' }} spacing={{ sm: '20px', md: '30px' }} width="100%">
+    <SimpleGrid minChildWidth={{ sm: '120px', md: '300px' }} spacing={{ sm: '20px', md: '30px' }} width="100%" justifyItems="center">
       {visibleBrands && visibleBrands.map((brand) => (
         <BrandWithModal data={brand} key={brand.id} />
       ))}
